@@ -35,6 +35,6 @@ App({
     username: null,
     password: null,
     data: null,
-    Grade_data: null,
+    confirm_data: null,
   }
 })

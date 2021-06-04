@@ -221,8 +221,13 @@ Page({
   bindOpenList: function (e) {
     var index = !isNaN(e) ? e : parseInt(e.currentTarget.dataset.index),
         data = {};
-    app.showLoadToast();
-    //data['testData['+index+'].display'] = !this.data.testData[index].display;
+    //app.showLoadToast();
+    console.log(this.data.testData[index]);
+    app.globalData.confirm_data = this.data.testData[index];
+    wx.navigateTo({
+      url: '/pages/confirm/confirm',
+    })
+    
     //this.setData(data);
     // wx.downloadFile({
     //   url:this.data.testData[index].attributes.url,
