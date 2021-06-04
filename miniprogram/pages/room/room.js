@@ -21,7 +21,7 @@ Page({
       messageDisplay: true,
       message: '' 
     },
-    date: []
+    date: util.formatTime(new Date())
   },
   onShareAppMessage: function(){
     return {
@@ -73,8 +73,6 @@ Page({
   search: function (key) {
     if(app.globalData.cookies != null){
       
-
-
     var that = this,
         inputValue = key || that.data.header.inputValue,
         messageDisplay = false,
@@ -99,15 +97,6 @@ Page({
       });
     }
 
-    // 对输入的是空格或未进行输入进行处理
-    if (inputValue === '') {
-
-      this.setData({
-        'main.mainDisplay': true
-      });
-
-      return false;
-    }
 
     // 防止注入攻击
     function checkData(v) {
@@ -183,10 +172,6 @@ Page({
     //   //console.log(data)
     //   doSuccess(data, true);
     // });
-    var dateTmp = util.formatTime(new Date());
-    this.setData({
-      date: dateTmp
-    });
     var date = that.data.date;
     console.log(date);
     var subareaId = 21;
@@ -259,7 +244,11 @@ Page({
 
   onShow: function(options){
     var _this = this;
-    this.search("COMP")
+    // var dateTmp = util.formatTime(new Date());
+    // this.setData({
+    //   date: dateTmp
+    // });
+    this.search()
     // if(wx.getStorageSync('LoginSuccess') && this.data.main.total == 0){
     //   this.search("COMP")
     // }
@@ -310,6 +299,7 @@ Page({
     this.setData({
       date:e.detail.selectDays[0]
     })
+    this.data.date = e.detail.selectDays[0]
     console.log(this.data.date)
     this.search()
   },

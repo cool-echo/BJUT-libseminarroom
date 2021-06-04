@@ -3,7 +3,7 @@
 <view class="main" wx:if="{{main.total}}" style="width: 750rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
   <!--主体部分标题-->
   <view class="main-title">
-    <text class="title-text">选择日期</text>
+    <text class="title-text">{{date}}</text>
   </view>
   <view class="container">
     <view>

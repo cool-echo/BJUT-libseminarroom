@@ -252,10 +252,12 @@ button::after{
 /* main-title
 ============================================================================ */
 .main-title {
-
+  font-size: large;
   margin: 35rpx 0 20rpx 25rpx;
+  align-self: center;
 }
   .title-text {
+      align-self:center;
       color: #999;
   }
 /* main-list

@@ -1,4 +1,6 @@
 // components/calendar/calendar.js
+
+var util = require('../../utils/timeutil.js');
 Component({
   options: {
     styleIsolation: 'apply-shared'
@@ -36,7 +38,7 @@ Component({
      */
     multiple:{
       type: Boolean,
-      value: true
+      value: false
     },
     /**
      * 是否展示头部
@@ -66,7 +68,7 @@ Component({
    */
   data: {
     calShow: true, // 日历组件是否打开
-    dateShow: false, // 日期是否选择
+    dateShow: true, // 日期是否选择
     selectDay: '', // 当前选择日期
     selectDays: [], //多选日期
     canlender: {
