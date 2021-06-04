@@ -17,7 +17,7 @@
     <view class="content">
 
       <view class="hd" style="transform:rotateZ({{angle}}deg);">
-        <image class="logo" src="/images/qr2.jpg"></image>
+        <image class="logo" src="/images/logo.png"></image>
         <image class="wave" src="/images/more/wave.png" mode="aspectFill"></image>
         <image class="wave wave-bg" src="/images/more/wave.png" mode="aspectFill"></image>
       </view>
