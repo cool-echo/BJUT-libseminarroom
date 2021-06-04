@@ -96,14 +96,25 @@ Page({
     wx.request({
       url: 'https://libseminarroom.bjut.edu.cn/login?loginname=' + username + '&password=' + password,
       method: 'POST',
+      timeout: 3000,
+      fail: function(res){
+         wx.hideToast({
+           success: (res) => {
+            wx.showModal({
+              title: '提示',
+              showCancel: false,
+              content: "网络异常，请连接校内网！"
+            });
+           },
+         })
+      },
+
       success: function (res) {
         console.log(res)
         data = res['data']
         var msg = data['msg']
         app.globalData.cookies = res['cookies']
         app.globalData.data = data
-
-
         if (msg == "") {
           wx.showToast({
             title: '成功',
