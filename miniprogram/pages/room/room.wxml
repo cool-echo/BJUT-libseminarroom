@@ -1,0 +1,75 @@
+
+<!--页面主体部分-->
+<view class="main" wx:if="{{main.total}}" style="width: 750rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+  <!--主体部分标题-->
+  <view class="main-title">
+    <text class="title-text">文件列表(如果超过100份，则仅显示前100份)</text>
+  </view>
+  <!--主体部分内容列表-->
+  <view class="main-list" wx:for="{{testData}}" wx:key="xh">
+    <!--列表的一个元素的模板结构-->
+    <view class="list-item">
+      <!--信息直接显示部分-->
+      <view class="item" data-index="{{index}}" bindtap="bindOpenList">
+        <image class="item-content-image" src="/images/pdf.png"></image>
+        <view class="item-content">
+          <!--<image class="item-content-image" src="/images/pdf.png"></image>-->
+          <view class="item-content-state">
+            <view class="content-state-name">
+              <text class="state-name-active">{{item.roomName}}</text>
+            </view>
+            <view class="content-state-stuId">类型：<text class="state-name-active">{{item.roomTypeName}}</text></view>
+          </view>
+        </view>
+        <!--信息直接显示部分的下拉标识-->
+        <view class="list-sign">
+          <image class="list-sign-icon {{!item.display ? 'list-sign-icon-show' : ''}}" src="/images/core/common/up.png"></image>
+        </view>
+      </view>
+      <!--信息隐藏的下拉列表
+      <view class="item-ul" hidden="{{!item.display}}">
+        <view class="item-ul-gendor item-ul-li">
+          <text class="ul-li-label">Bucket</text>
+          <text class="ul-li-content">{{item.attributes.bucket}}</text>
+        </view>
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">Key</text>
+          <text class="ul-li-content">{{item.attributes.key}}</text>
+        </view>
+        <view class="item-ul-major item-ul-li">
+          <text class="ul-li-label">文件类型</text>
+          <text class="ul-li-content">{{item.attributes.mime_type}}</text>
+        </view>
+        <view class="item-ul-grade item-ul-li">
+          <text class="ul-li-label">URL</text>
+          <text class="ul-li-content">{{item.attributes.url}}</text>
+        </view>
+      </view>
+      -->
+    </view>
+  </view>
+  <!--提示消息-->
+
+</view>
+
+<view class="help" id="help" wx:if="{{header.help_status}}" bindtap="tapHelp">
+  <view class="box">
+    <view class="box-hd">
+      <text class="box-title">帮助</text>
+      <image class="box-close" src="/images/more/close.png" bindtap="hideHelp"></image>
+    </view>
+    <view class="box-bd">
+      <view class="help-q">文件名</view>
+      <view class="help-a">
+        <text>您可以通过输入文件名来进行查找，例如搜索 “COMP” ，将会搜索到所有包含COMP的试卷</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--提示消息-->
+<view class="search-message" >
+  <text class="message-title">我也是有底线的</text>
+</view>
+
