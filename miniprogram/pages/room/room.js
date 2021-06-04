@@ -177,7 +177,7 @@ Page({
     var subareaId = 21;
     wx.request({
       url: 'https://libseminarroom.bjut.edu.cn/reservation/list?subareaId='+subareaId+"&date="+date,
-      cookies: app.globalData.cookies,
+      cookie: app.globalData.cookies[0],
       method: 'POST',
       success: function (res) {
         console.log(res)
@@ -224,6 +224,7 @@ Page({
     //app.showLoadToast();
     console.log(this.data.testData[index]);
     app.globalData.confirm_data = this.data.testData[index];
+    app.globalData.confirm_date = this.data.date;
     wx.navigateTo({
       url: '/pages/confirm/confirm',
     })

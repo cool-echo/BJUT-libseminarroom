@@ -36,5 +36,6 @@ App({
     password: null,
     data: null,
     confirm_data: null,
+    confirm_date: null,
   }
 })

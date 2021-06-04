@@ -37,7 +37,7 @@
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
-  "appid": "wxf6e4482d418c2b5c",
+  "appid": "wxbed8c7c9841e441b",
   "projectname": "miniprogram-3",
   "libVersion": "2.14.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
