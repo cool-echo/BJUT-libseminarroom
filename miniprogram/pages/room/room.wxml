@@ -23,8 +23,15 @@
             <view class="content-state-name">
               <text class="state-name-active">{{item.roomName}}</text>
             </view>
+            <view class="content-state-stuId">研讨室ID：<text class="state-name-active">{{item.roomId}}</text></view>
             <view class="content-state-stuId">类型：<text class="state-name-active">{{item.roomTypeName}}</text></view>
+            <view class="content-state-time">
+            <view wx:for="{{item.roomTime}}" wx:key="" wx:for-item="time">
+              <text class="state-time">{{time.timeStatus}}</text>
+            </view>
           </view>
+          </view>
+
         </view>
         <!--信息直接显示部分的下拉标识-->
         <view class="list-sign">

@@ -307,6 +307,13 @@ button::after{
           justify-content: center;
           align-content: flex-start;
       }
+      .content-state-time {
+
+        display: flex;
+        
+        justify-content: center;
+        align-content: flex-start;
+    }
           .content-state-name {
               font-size: 12pt;
               line-height: 175%;
@@ -467,4 +474,7 @@ flex-direction: column;
 }
 .help-a text{
 word-break: break-all;
+}
+.state-time{
+  flex: 1;
 }
