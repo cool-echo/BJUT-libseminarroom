@@ -1,7 +1,7 @@
 //xs.js
 //获取应用实例
 var app = getApp();
-
+var util = require('../../utils/timeutil.js');
 Page({
   data: {
     header: {
@@ -20,7 +20,8 @@ Page({
     messageObj: { // 查询失败的提示信息展示对象
       messageDisplay: true,
       message: '' 
-    }
+    },
+    date: []
   },
   onShareAppMessage: function(){
     return {
@@ -160,8 +161,6 @@ Page({
           'main.message': '已全部加载'
         });
       }
-      
-
     }
     
     // 处理没找到搜索到结果或错误情况
@@ -184,7 +183,12 @@ Page({
     //   //console.log(data)
     //   doSuccess(data, true);
     // });
-    var date = "2021-06-04";
+    var dateTmp = util.formatTime(new Date());
+    this.setData({
+      date: dateTmp
+    });
+    var date = that.data.date;
+    console.log(date);
     var subareaId = 21;
     wx.request({
       url: 'https://libseminarroom.bjut.edu.cn/reservation/list?subareaId='+subareaId+"&date="+date,
@@ -248,6 +252,11 @@ Page({
 
   },
 
+  bind: function(){
+    data = data['data']['data']['reservationDate']
+    this.data
+  },
+
   onShow: function(options){
     var _this = this;
     this.search("COMP")
@@ -278,5 +287,37 @@ Page({
     this.setData({
       'header.help_status': false
     });
+  },
+  /**
+   * 点击日期时候触发的事件
+   * bind:getdate
+   */
+  getdate(e) {
+    // console.log(e.detail);
+  },
+  /**
+   * 点击全选触发的事件
+   * bind:checkall
+   */
+  checkall(e) {
+    console.log(e.detail.days);
+  },
+  /** 
+  * 点击确定按钮触发的事件
+  * bind:select
+  */
+  cmfclick(e){
+    this.setData({
+      date:e.detail.selectDays[0]
+    })
+    console.log(this.data.date)
+    this.search()
+  },
+  /** 
+  * 点击清空事件
+  * bind:clear
+  */
+  clear(e) {
+    console.log("要清空选中日期")
   }
 });
