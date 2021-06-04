@@ -477,4 +477,6 @@ word-break: break-all;
 }
 .state-time{
   flex: 1;
+  width: 20rpx;
+  height: 20rpx;
 }

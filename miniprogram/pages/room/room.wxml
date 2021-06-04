@@ -27,7 +27,9 @@
             <view class="content-state-stuId">类型：<text class="state-name-active">{{item.roomTypeName}}</text></view>
             <view class="content-state-time">
             <view wx:for="{{item.roomTime}}" wx:key="" wx:for-item="time">
-              <text class="state-time">{{time.timeStatus}}</text>
+              <image class="state-time" wx:if="{{time.timeStatus == 2}}" src="/images/available.png"></image>
+              <image class="state-time" wx:if="{{time.timeStatus == 1 || time.timeStatus == 3}}" src="/images/occupied.png"></image>
+              <!-- <text class="state-time">{{time.timeStatus}}</text> -->
             </view>
           </view>
           </view>
