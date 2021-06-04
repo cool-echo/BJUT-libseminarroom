@@ -1,4 +1,5 @@
 {
+
   "pages": [
     "pages/index/index",
     "pages/room/room"
@@ -11,5 +12,8 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "usingComponents": {
+    "calendar": "/components/calendar/calendar"
+  }
 }

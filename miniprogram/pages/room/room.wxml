@@ -5,6 +5,11 @@
   <view class="main-title">
     <text class="title-text">文件列表(如果超过100份，则仅显示前100份)</text>
   </view>
+  <view class="container">
+    <view>
+      <calendar id="calendar" isOpen="{{true}}" selected="{{selectedDays}}" lockDay="{{lockday}}" bind:select="cmfclick" bind:getdate="getdate" bind:checkall="checkall" bind:clear="clear"></calendar>
+    </view>
+  </view>
   <!--主体部分内容列表-->
   <view class="main-list" wx:for="{{testData}}" wx:key="xh">
     <!--列表的一个元素的模板结构-->
@@ -23,7 +28,7 @@
         </view>
         <!--信息直接显示部分的下拉标识-->
         <view class="list-sign">
-          <image class="list-sign-icon {{!item.display ? 'list-sign-icon-show' : ''}}" src="/images/core/common/up.png"></image>
+          <image class="list-sign-icon {{!item.display ? 'list-sign-icon-show' : ''}}" bindtap= "bind" src="/images/core/common/up.png"></image>
         </view>
       </view>
       <!--信息隐藏的下拉列表
