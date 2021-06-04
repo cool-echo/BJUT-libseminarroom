@@ -14,6 +14,9 @@
     font-size: 28rpx;
     /*justify-content: space-between;*/
 }
+.row-wrap-input{
+  align-self: center;
+}
 .row-wrap .label{
     color: #000
 }
@@ -170,4 +173,28 @@
 }
 .pink-bg {
     background-color: #000;
+}
+.state-time{
+  flex: 1;
+  width: 20rpx;
+  height: 20rpx;
+}
+.state-time-text{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+.state-time-image{
+  padding-right: 10rpx;
+  flex: 1;
+  width: 20rpx;
+  height: 20rpx;
+}
+.main-list {
+  padding:30rpx;
+  display: flex;
+  flex-flow: wrap;
+  align-items: stretch;
+}
+.main-list-item{
+  padding: 10rpx;
 }

@@ -7,11 +7,19 @@ Page({
    */
   data: {
     startTime:[
-      "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-      "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
-      "15:00", "15:30", "16:00", "16:30", "17:00", "17:30",
-      "18:00", "18:30", "19:00", "19:30", "20:00", "20:30",
-      "21:00", "21:30", "22:00"
+      "08:00", "08:30",
+      "09:00", "09:30", 
+      "10:00", "10:30", 
+      "11:00", "11:30",
+      "12:00", "12:30", 
+      "13:00", "13:30", 
+      "14:00", "14:30",
+      "15:00", "15:30", 
+      "16:00", "16:30", 
+      "17:00", "17:30",
+      "18:00", "18:30", 
+      "19:00", "19:30", 
+      "20:00", "20:30",
     ],
     endTime: ["请先选择起始时间"],
     selstartTime:"请选择",
@@ -20,7 +28,8 @@ Page({
     roomData: null,
     activedateid : 0,
     modalContent: "",
-    modalHidden: true
+    modalHidden: true,
+    otheruserID: null
   },
 
   /**
@@ -190,16 +199,17 @@ Page({
     return arr;
   },
   appointtap:function(){
-    if (this.data.selendTime === "请选择" || this.data.selstartTime === "请选择"){
-      wx.showToast({
-        title: '请先选择正确的预约时段',
-        image: '../../images/popup-close.png'
+    if (this.data.selendTime === "请选择" || this.data.selstartTime === "请选择" || this.data.otheruserID == null){
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: "信息填写错误"
       });
       return;
     }
     const curselDay = this.data.date[this.data.activedateid].datestr;
     this.setData({
-      modalContent: '请确认您预定的信息\r\n: ' + this.data.roomData.roomName + '\r\n预约日期: ' + this.data.date +'\r\n预约时间: ' + this.data.selstartTime + '--' + this.data.selendTime + '\r\n请检查无误后点击确认',
+      modalContent: '请确认您预定的信息: \r\n' + this.data.roomData.roomName + '\r\n预约日期: ' + this.data.date +'\r\n参加人: ' + this.data.otheruserID +'\r\n预约时间: ' + this.data.selstartTime + '--' + this.data.selendTime + '\r\n请检查无误后点击确认',
       modalHidden: false
     });
   },
@@ -233,5 +243,13 @@ Page({
       modalContent: '',
       modalHidden: true
     });
-  }
+  },
+  useridInput: function (e) {
+    this.setData({
+      otheruserID: e.detail.value,
+    });
+    if (e.detail.value.length >= 8) {
+      wx.hideKeyboard();
+    }
+  },
 })
