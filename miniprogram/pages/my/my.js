@@ -134,7 +134,7 @@ Page({
 
     // 处理成功返回的数据
     function doSuccess(data, messageDisplay) {
-      data = data['data']['data']['reservationDate']
+      data = data['data']['data']
       console.log(data)
       
       
@@ -144,7 +144,7 @@ Page({
         }
         else{
           that.data.testData.push(element)
-          console.log(that.data.testData.sort((x,y) => x.roomId - y.roomId))
+          console.log(that.data.testData.sort((x,y) => y.ReservationID - x.ReservationID))
         }
       });
 
@@ -179,18 +179,15 @@ Page({
       'main.page': that.data.main.page + 1
     });
     app.showLoadToast();
-    // const query = new AV.Query('_File');
-    // query.contains('name', this.data.header.inputValue);
-    // query.find().then((data) => {
-    //   //console.log(data)
-    //   doSuccess(data, true);
-    // });
+
     var date = that.data.date;
     console.log(date);
     var subareaId = 21;
     wx.request({
-      url: 'https://libseminarroom.bjut.edu.cn/reservation/list?subareaId='+subareaId+"&date="+date,
-      cookie: app.globalData.cookies[0],
+      url: 'https://libseminarroom.bjut.edu.cn/reservation/mylist',
+      header:{
+        "cookie": app.globalData.cookies[0]
+      },
       method: 'POST',
       success: function (res) {
         console.log(res)
@@ -198,39 +195,7 @@ Page({
       }
 
     })
-    var subareaId = 20;
-    wx.request({
-      url: 'https://libseminarroom.bjut.edu.cn/reservation/list?subareaId='+subareaId+"&date="+date,
-      cookie: app.globalData.cookies[0],
-      method: 'POST',
-      success: function (res) {
-        console.log(res)
-        doSuccess(res, true);
-      }
 
-    })
-    var subareaId = 22;
-    wx.request({
-      url: 'https://libseminarroom.bjut.edu.cn/reservation/list?subareaId='+subareaId+"&date="+date,
-      cookie: app.globalData.cookies[0],
-      method: 'POST',
-      success: function (res) {
-        console.log(res)
-        doSuccess(res, true);
-      }
-
-    })
-    var subareaId = 24;
-    wx.request({
-      url: 'https://libseminarroom.bjut.edu.cn/reservation/list?subareaId='+subareaId+"&date="+date,
-      cookie: app.globalData.cookies[0],
-      method: 'POST',
-      success: function (res) {
-        console.log(res)
-        doSuccess(res, true);
-      }
-
-    })
   }
   else{
     app.showErrorModal('请先至少登陆一次才能使用此功能', '提醒');
@@ -265,15 +230,47 @@ Page({
 
   // main——最优
   bindOpenList: function (e) {
+    var _this = this;
     var index = !isNaN(e) ? e : parseInt(e.currentTarget.dataset.index),
         data = {};
     //app.showLoadToast();
     console.log(this.data.testData[index]);
-    app.globalData.confirm_data = this.data.testData[index];
-    app.globalData.confirm_date = this.data.date;
-    wx.navigateTo({
-      url: '/pages/confirm/confirm',
+    var data = this.data.testData[index];
+    var ReservationID = data.ReservationID
+    wx.showModal({
+      title: '确认',
+      content: '确定要删除此预约？',
+      success: function (res) {
+        if (res.cancel) {
+        } else {
+          wx.showLoading({
+            title: '加载中',
+          })
+           wx.request({
+             url: 'https://libseminarroom.bjut.edu.cn/reservation/mydelete?id='+ReservationID+'&action=delete',
+             header:{
+              "cookie": app.globalData.cookies[0]
+            },
+            method: 'POST',
+            success: function (res) {
+              wx.hideLoading({
+                success: (res) => {},
+              })
+              console.log(res)
+              const msg = res['data']['msg']
+              wx.showModal({
+                title: '提示',
+                showCancel: false,
+                content: msg
+              });
+              _this.search();
+            }
+            
+           })
+        }
+     },
     })
+    
     
     //this.setData(data);
     // wx.downloadFile({
@@ -300,14 +297,36 @@ Page({
     // this.setData({
     //   date: dateTmp
     // });
+    if(this.data.testData.length != 0)
+      return;
+    if (wx.getStorageSync('username') != null & wx.getStorageSync('username') != "") {
+      var username = wx.getStorageSync('username')
+      var password = wx.getStorageSync('password')
+      wx.request({
+        url: 'https://libseminarroom.bjut.edu.cn/login?loginname=' + username + '&password=' + password,
+        method: 'POST',
+        timeout: 3000,
+        success: function (res) {
+          console.log(res)
+          var data = res['data']
+          var msg = data['msg']
+          app.globalData.cookies = res['cookies']
+          app.globalData.data = data
+          _this.search()
+        }
+      })
+    }
+    else{
     if(app.globalData.cookies == null){
+      app.showErrorModal('请先至少登陆一次才能使用此功能', '提醒');
       wx.navigateTo({
         url: '/pages/index/index',
       })
     }
+  }
 
-    if(this.data.testData.length == 0)
-      this.search()
+    // if(this.data.testData.length == 0)
+    //   this.search()
     // if(wx.getStorageSync('LoginSuccess') && this.data.main.total == 0){
     //   this.search("COMP")
     // }
@@ -318,6 +337,11 @@ Page({
     
   },
   onReady: function(){
+  },
+
+  onPullDownRefresh: function(){
+    this.data.testData = []
+    this.search()
   },
 
 

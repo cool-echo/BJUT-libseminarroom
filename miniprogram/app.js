@@ -1,6 +1,18 @@
 //app.js
 App({
   onLaunch: function () {
+    wx.request({
+      url: 'https://libseminarroom.bjut.edu.cn/login',
+      method: 'POST',
+      timeout: 3000,
+      fail: function(res){
+        wx.showModal({
+          title: '提示',
+          showCancel: false,
+          content: "本程序需要在校园网下运行，请连接校内网！"
+        });
+      },
+    })
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {

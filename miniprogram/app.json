@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/room/room",
-    "pages/confirm/confirm"
+    "pages/confirm/confirm",
+    "pages/my/my"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -15,5 +16,24 @@
   "style": "v2",
   "usingComponents": {
     "calendar": "/components/calendar/calendar"
+  },
+  "tabBar": {
+    "color": "#7ec5ff",
+    "selectedColor": "#7ec5ff",
+    "backgroundColor": "#f7f6fb",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发起预约",
+        "iconPath": "images/index/index.png",
+        "selectedIconPath": "images/index/index@active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "预约记录",
+        "iconPath": "images/index/more.png",
+        "selectedIconPath": "images/index/more@active.png"
+      }
+    ]
   }
 }

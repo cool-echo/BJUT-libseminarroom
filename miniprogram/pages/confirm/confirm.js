@@ -29,7 +29,13 @@ Page({
     activedateid : 0,
     modalContent: "",
     modalHidden: true,
-    otheruserID: null
+    otheruserID: ""
+  },
+  onShareAppMessage: function () {
+    return {
+      title: 'We-BJUT(一个高效的研讨室预约小工具)',
+      
+    }
   },
 
   /**
@@ -37,6 +43,11 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad');
+    if(app.globalData.confirm_data == null){
+      wx.navigateTo({
+        url: '/pages/index/index',
+      })
+    }
     var data = app.globalData.confirm_data;
     var date = app.globalData.confirm_date;
     console.log(data);
@@ -199,7 +210,7 @@ Page({
     return arr;
   },
   appointtap:function(){
-    if (this.data.selendTime === "请选择" || this.data.selstartTime === "请选择" || this.data.otheruserID == null){
+    if (this.data.selendTime === "请选择" || this.data.selstartTime === "请选择"){
       wx.showModal({
         title: '提示',
         showCancel: false,
@@ -219,8 +230,9 @@ Page({
       modalHidden: true
     });
     console.log(app.globalData.cookies)
+    
     wx.request({
-      url: 'https://libseminarroom.bjut.edu.cn/reservation/save?applyNo=20190511-0001&roomId='+this.data.roomData.roomId+"&roomPurposeId=6&otherUser="+""+"&applydate="+this.data.date+"&applytime="+this.data.selstartTime + "-" + this.data.selendTime,
+      url: 'https://libseminarroom.bjut.edu.cn/reservation/save?applyNo=20190511-0001&roomId='+this.data.roomData.roomId+"&roomPurposeId=6&otherUser="+this.data.otheruserID+"&applydate="+this.data.date+"&applytime="+this.data.selstartTime + "-" + this.data.selendTime,
       method: "POST",
       header:{
         "cookie": app.globalData.cookies[0]

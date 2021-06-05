@@ -35,7 +35,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: 'We-北都君(一个专为BDIC学子设计的小工具)',
+      title: 'We-BJUT(一个高效的研讨室预约小工具)',
       
     }
   },

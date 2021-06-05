@@ -3,13 +3,9 @@
 <view class="main" wx:if="{{main.total}}" style="width: 750rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
   <!--主体部分标题-->
   <view class="main-title">
-    <text class="title-text">{{date}}</text>
+    <text class="title-text">预约记录(点击可删除)</text>
   </view>
-  <view class="container">
-    <view>
-      <calendar id="calendar" isOpen="{{true}}" selected="{{[date]}}" lockDay="{{lockday}}" bind:select="cmfclick" bind:getdate="getdate" bind:checkall="checkall" bind:clear="clear"></calendar>
-    </view>
-  </view>
+
   <!--主体部分内容列表-->
   <view class="main-list" wx:for="{{testData}}" wx:key="roomId">
     <!--列表的一个元素的模板结构-->
@@ -21,10 +17,15 @@
           <!--<image class="item-content-image" src="/images/pdf.png"></image>-->
           <view class="item-content-state">
             <view class="content-state-name">
-              <text class="state-name-active">{{item.roomName}}</text>
+              <text class="state-name-active">{{item.RoomName}}</text>
             </view>
-            <view class="content-state-stuId">研讨室ID：<text class="state-name-active">{{item.roomId}}</text></view>
-            <view class="content-state-stuId">类型：<text class="state-name-active">{{item.roomTypeName}}</text></view>
+            <view class="content-state-stuId">预约ID：<text class="state-name-active">{{item.ReservationID}}</text></view>
+            <view class="content-state-stuId">日期：<text class="state-name-active">{{item.BookDate}}</text></view>
+            <view class="content-state-stuId">开始时间：<text class="state-name-active">{{item.BeginTime}}</text></view>
+            <view class="content-state-stuId">结束时间：<text class="state-name-active">{{item.EndTime}}</text></view>
+            <view class="content-state-stuId">状态：<text class="state-name-active">{{item.MySign}}</text></view>
+            <view class="content-state-stuId">预约状态：<text class="state-name-active">{{item.ResStateName}}</text></view>
+            <view class="content-state-stuId">参加人：<text class="state-name-active">{{item.takeIn}}</text></view>
             <view class="content-state-time">
             <view wx:for="{{item.roomTime}}" wx:key="" wx:for-item="time">
               <image class="state-time" wx:if="{{time.timeStatus == 2}}" src="/images/available.png"></image>

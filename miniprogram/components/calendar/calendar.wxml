@@ -34,9 +34,9 @@ module.exports = {
 <view wx:if='{{!calShow}}' class="{{isOpen?'':'calendar-box'}} {{dateShow?'active':''}}">
   <view class="calendar-wrapper {{dateShow?'active':''}}">
     <view class="calendar-panel">
-      <view class='checkalllbtn' bindtap='checkall'>
+      <!-- <view class='checkalllbtn' bindtap='checkall'>
         全选
-      </view>
+      </view> -->
       <view class="date-befor" data-id="0" data-type="month" bindtap='dataBefor'>
         <view class="iconfont">
         <view class='left-color'></view>
@@ -51,9 +51,9 @@ module.exports = {
         <view class='right-color'></view>
         </view>
       </view>
-      <view class='backtoday' bindtap='backtoday'>
+      <!-- <view class='backtoday' bindtap='backtoday'>
         回到今天
-      </view>
+      </view> -->
     </view>
     <view class="calendar-header {{mini?'mini':''}}">
       <view>日</view>
@@ -82,9 +82,9 @@ module.exports = {
         </view>
       </block>
     </view>
-    <view wx:if="{{!readonly}}" class="packup flex flex-between">
+    <!-- <view wx:if="{{!readonly}}" class="packup flex flex-between">
       <view class="packup-button" bindtap='clear'>清空</view>
       <view class="packup-button border-left" bindtap='packup'>确定</view>
-    </view>
+    </view> -->
   </view>
 </view>
