@@ -144,18 +144,20 @@ Page({
         }
         else{
           that.data.testData.push(element)
-          console.log(that.data.testData.sort((x,y) => y.ReservationID - x.ReservationID))
+          that.data.testData.sort((x,y) => y.ReservationID - x.ReservationID)
+          that.setData({
+            'testData': that.data.testData,
+            'main.mainDisplay': true,
+            'main.total': that.data.testData.length,
+            'main.sum': that.data.testData.length,
+            'messageObj.messageDisplay': messageDisplay,
+            'main.message': '上滑加载更多'
+          });
+
         }
       });
 
-      that.setData({
-        'testData': that.data.testData,
-        'main.mainDisplay': true,
-        'main.total': that.data.testData.length,
-        'main.sum': that.data.testData.length,
-        'messageObj.messageDisplay': messageDisplay,
-        'main.message': '上滑加载更多'
-      });
+
       wx.hideToast();
 
       if(data.total <= that.data.main.sum) {

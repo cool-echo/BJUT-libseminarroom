@@ -144,7 +144,7 @@ Page({
         }
         else{
           that.data.testData.push(element)
-          console.log(that.data.testData.sort((x,y) => x.roomId - y.roomId))
+          that.data.testData.sort((x,y) => x.roomId - y.roomId)
         }
       });
 

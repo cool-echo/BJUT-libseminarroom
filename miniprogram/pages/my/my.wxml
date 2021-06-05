@@ -27,7 +27,7 @@
             <view class="content-state-stuId">预约状态：<text class="state-name-active">{{item.ResStateName}}</text></view>
             <view class="content-state-stuId">参加人：<text class="state-name-active">{{item.takeIn}}</text></view>
             <view class="content-state-time">
-            <view wx:for="{{item.roomTime}}" wx:key="" wx:for-item="time">
+            <view wx:for="{{item.roomTime}}" wx:key="index" wx:for-item="time">
               <image class="state-time" wx:if="{{time.timeStatus == 2}}" src="/images/available.png"></image>
               <image class="state-time" wx:if="{{time.timeStatus == 1 || time.timeStatus == 3}}" src="/images/occupied.png"></image>
               <!-- <text class="state-time">{{time.timeStatus}}</text> -->
