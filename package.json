@@ -1,0 +1,22 @@
+{
+  "name": "bjut-libseminarroom",
+  "version": "1.0.4",
+  "description": "BJUT Library Seminar Room Reservation Applet",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echo-cool/BJUT-libseminarroom.git"
+  },
+  "keywords": [
+    "BJUT"
+  ],
+  "author": "echo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/echo-cool/BJUT-libseminarroom/issues"
+  },
+  "homepage": "https://github.com/echo-cool/BJUT-libseminarroom#readme"
+}
