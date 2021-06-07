@@ -13,9 +13,11 @@
 
 ## 小程序码
 
-<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/gh_ed724a296d0c_258 (1).jpg" style="zoom: 67%;" />
+<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/gh_ed724a296d0c_258 (1).jpg" width="200" />
 
 ## 运行截图
-<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG850.jpeg" style="zoom:25%;" />
-<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG851.jpeg" style="zoom:25%;" />
-<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG852.jpeg" style="zoom:25%;" />
+<p float="left">
+  <img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG850.jpeg" width="200"/>
+  <img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG851.jpeg" width="200"/>
+  <img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG852.jpeg" width="200"/> 
+</p>
