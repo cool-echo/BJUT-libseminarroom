@@ -31,7 +31,6 @@ App({
   },
   globalData: {
     cookies: null,
-    name: null,
     username: null,
     password: null,
     data: null,

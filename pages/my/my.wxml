@@ -1,6 +1,6 @@
 
 <!--页面主体部分-->
-<view class="main" wx:if="{{main.total}}" style="width: 750rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+<view class="main"  style="width: 750rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
   <!--主体部分标题-->
   <view class="main-title">
     <text class="title-text">预约记录(点击可删除)</text>

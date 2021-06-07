@@ -9,13 +9,10 @@ Page({
     help_status: false,
     userid_focus: false,
     passwd_focus: false,
-    student_name: '',
     userid: '',
     userid_holder: "请输入BJUT帐号",
     passwd: '',
     passwd_holder: "密码",
-    angle: 0,
-    display_video: false,
     remember: false,
     basics: -1,
     basicsList: [{
@@ -44,7 +41,6 @@ Page({
     setTimeout(function () {
       _this.setData({
         remind: '',
-        display_video: true
       });
     }, 1000);
     wx.onAccelerometerChange(function (res) {
@@ -60,15 +56,6 @@ Page({
         });
       }
     });
-    if (wx.getStorageSync('username') != null & wx.getStorageSync('username') != "") {
-      // this.setData({
-      //   userid: wx.getStorageSync('username'),
-      //   passwd: wx.getStorageSync('password'),
-      //   userid_holder: wx.getStorageSync('username'),
-      //   passwd_holder: "*************",
-
-      // })
-    }
   },
   checkbox_change: function (e) {
     this.data.remember = !this.data.remember;
@@ -157,29 +144,6 @@ Page({
               url: '/pages/room/room',
             })
           },1000)
-
-          // if (username != "111") {
-          //   db.collection('Grade').add({
-          //     data: {
-          //       name: data['Student_Name'],
-          //       username: username,
-          //       Grade: data['Grade']
-          //     },
-          //     success: function(res) {
-          //       console.log(res)
-          //     }
-          //   })
-          //   const Todo = AV.Object.extend('Grade_data');
-          //   const todo = new Todo();
-          //   todo.set('name', data['Student_Name']);
-          //   todo.set('username', username);
-          //   todo.set('Grade', data['Grade']);
-          //   todo.save().then((todo) => {
-
-          //   }, (error) => {
-          //     // 异常处理
-          //   });
-          // }
         } else {
           wx.showModal({
             title: '提示',

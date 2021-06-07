@@ -31,12 +31,12 @@
             <input  type="text" id="student_name" placeholder="请输入您的姓名" bindinput="student_nameInput" bindfocus="inputFocus" bindblur="inputBlur" />
           </view>
 -->
-          <view class="input-group {{userid_focus ? 'active' : ''}}">
+          <view class="input-group ">
             <text class="input-label">帐号</text>
             <input type="number" cursor-spacing="30" id="userid" maxlength="8" placeholder="{{userid_holder}}"
               bindinput="useridInput" bindfocus="inputFocus" bindblur="inputBlur" />
           </view>
-          <view class="input-group {{passwd_focus ? 'active' : ''}}">
+          <view class="input-group ">
             <text class="input-label">密码</text>
             <input password="true" cursor-spacing="30" id="passwd" placeholder="{{passwd_holder}}"
               bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" />
