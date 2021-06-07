@@ -5,7 +5,7 @@ Page{
   --red: #1daa24;
 }
 .container {
-  background: #9f8bea;
+  background: #5ec5ff;
   align-items: stretch;
   padding: 0;
   height: 100%;
@@ -186,7 +186,7 @@ form {
   font-size: 13pt;
 
   height: 85rpx;
-  background: #9f8bea;
+  background: #5ec5ff;
   color: #FFF;
   text-align: center;
   border-radius: 5px;

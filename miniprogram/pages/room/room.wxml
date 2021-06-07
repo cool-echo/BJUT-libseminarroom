@@ -5,6 +5,7 @@
   <view class="main-title">
     <text class="title-text">{{date}}</text>
   </view>
+  <text class="title-text">读者可在8:00- 22:30登录预约系统预约当日和第二天研讨室开放时间中的任意时段；每天最多可使用研讨室1次；预约时长最短1小时，可半小时递增，最长4小时。</text>
   <view class="container">
     <view>
       <calendar id="calendar" isOpen="{{true}}" selected="{{[date]}}" lockDay="{{lockday}}" bind:select="cmfclick" bind:getdate="getdate" bind:checkall="checkall" bind:clear="clear"></calendar>

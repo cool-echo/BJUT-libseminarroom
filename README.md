@@ -1,12 +1,21 @@
-# 云开发 quickstart
+# 北京工业大学研讨室预约小程序
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+一个小项目，由于学校的研讨室预约程序只能在电脑上打开，所以就开发了这个小程序，可以完成北京工业大学研讨室的预约。
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
 
-## 参考文档
+已实现以下功能：
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+- 账号登陆
+- 研讨室预约状态查询
+- 日期选择
+-  预约信息填写
+-  删除预约
 
+## 小程序码
+
+<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/gh_ed724a296d0c_258 (1).jpg" style="zoom: 67%;" />
+
+## 运行截图
+<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG850.jpeg" style="zoom:25%;" />
+<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG851.jpeg" style="zoom:25%;" />
+<img src="https://photos-picgo.oss-cn-beijing.aliyuncs.com/img/WechatIMG852.jpeg" style="zoom:25%;" />

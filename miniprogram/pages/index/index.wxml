@@ -71,12 +71,12 @@
           <view class="box-bd">
             <view class="help-q">1、帐号和密码是什么？</view>
             <view class="help-a">
-              <text>帐号：UCD账号（校园一卡通卡号）</text>
+              <text>帐号：BJUT账号（校园一卡通卡号）</text>
               <text>自己设置的密码</text>
             </view>
             <view class="help-q">2、忘记密码？</view>
             <view class="help-a">
-              <text>请登陆UCD找回密码</text>
+              <text>请登陆BJUT校内网找回密码</text>
             </view>
           </view>
         </view>

@@ -1,6 +1,6 @@
 {
-  "navigationBarBackgroundColor": "#9f8bea",
-  "backgroundColor": "#9f8bea",
+  "navigationBarBackgroundColor": "#5ec5ff",
+  "backgroundColor": "#5ec5ff",
   "enablePullDownRefresh": false,
   "navigationBarTitleText": "研讨室预约" ,
   "usingComponents": {}
